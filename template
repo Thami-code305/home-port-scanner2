@@ -1,1 +1,60 @@
 
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "nvqtud8ijji-"
+      },
+      "outputs": [],
+      "source": [
+        "# Create index.html template\n",
+        "import os\n",
+        "os.makedirs(\"templates\", exist_ok=True)\n",
+        "with open(\"templates/index.html\", \"w\") as f:\n",
+        "    f.write(\"\"\"\n",
+        "<!doctype html>\n",
+        "<html>\n",
+        "<head>\n",
+        "  <title>Home Port Scanner</title>\n",
+        "</head>\n",
+        "<body>\n",
+        "  <h2>Simple Port Scanner</h2>\n",
+        "  <form method=\"post\">\n",
+        "    Domain/IP: <input name=\"target\"><br>\n",
+        "    Start Port: <input name=\"start_port\" value=\"20\"><br>\n",
+        "    End Port: <input name=\"end_port\" value=\"100\"><br>\n",
+        "    <input type=\"submit\" value=\"Scan\">\n",
+        "  </form>\n",
+        "\n",
+        "  {% if target %}\n",
+        "    <h3>Results for {{ target }}</h3>\n",
+        "    <pre>\n",
+        "PORT     SERVICE\n",
+        "{% for port, service in results %}\n",
+        "{{ port }}       {{ service }}\n",
+        "{% endfor %}\n",
+        "    </pre>\n",
+        "  {% endif %}\n",
+        "</body>\n",
+        "</html>\n",
+        "\"\"\")"
+      ]
+    }
+  ]
+}
