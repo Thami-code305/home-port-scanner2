@@ -9,7 +9,7 @@ Original file is located at
 
 # Create app.py (Flask web app)
 with open("app.py", "w") as f:
-    f.write("""
+    f.write(""")
 from flask import Flask, request, render_template
 import socket
 from common_ports import ports_and_services
